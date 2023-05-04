@@ -33,6 +33,8 @@ public class RegisterUser {
 
         driver.findElement(singUp).click();
 
+        //ENTER ACCOUNT INFORMATION
+
         By userPassword = By.id("password");
 
         By daySelect = By.id("days");
@@ -68,6 +70,74 @@ public class RegisterUser {
         driver.findElement(newsletterCheckbox).click();
 
         driver.findElement(partnersCheckbox).click();
+
+        //ADDRESS INFORMATION
+
+        By userFirstName = By.id("first_name");
+
+        By userLastName = By.id("last_name");
+
+        By userCompany = By.id("company");
+
+        By userAddress1 = By.id("address1");
+
+        By userAddress2 = By.id("address2");
+
+        By countrySelect = By.id("country");
+
+        By countryOption = By.xpath("//*[@id=\"country\"]/option[2]");
+
+        By userState = By.id("state");
+
+        By userCity = By.id("city");
+
+        By userZipcode = By.id("zipcode");
+
+        By userMobileNumber = By.id("mobile_number");
+
+        By createButton = By.xpath("//*[@id=\"form\"]/div/div/div/div/form/button");
+
+        driver.findElement(userFirstName).sendKeys("test");
+
+        driver.findElement(userLastName).sendKeys("27");
+
+        driver.findElement(userCompany).sendKeys("testCompany");
+
+        driver.findElement(userAddress1).sendKeys("testAddress1");
+
+        driver.findElement(userAddress2).sendKeys("testAddress2");
+
+        driver.findElement(countrySelect).click();
+
+        driver.findElement(countryOption).click();
+
+        driver.findElement(userState).sendKeys("testState");
+
+        driver.findElement(userCity).sendKeys("testCity");
+
+        driver.findElement(userZipcode).sendKeys("testZipcode");
+
+        driver.findElement(userMobileNumber).sendKeys("testMobileNumber");
+
+        driver.findElement(createButton).click();
+
+        //ACCOUNT CREATED!
+
+        By continueCreateButton = By.xpath("//*[@id=\"form\"]/div/div/div/div/a");
+
+        driver.findElement(continueCreateButton).click();
+
+        By addButton = By.id("dismiss-button");
+
+        driver.findElement(addButton).click();
+
+        By deleteButton = By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a");
+
+        driver.findElement(deleteButton).click();
+
+        By continueDeleteButton = By.xpath("//*[@id=\"form\"]/div/div/div/div/a");
+
+        driver.findElement(continueDeleteButton).click();
 
         //driver.quit();
         
