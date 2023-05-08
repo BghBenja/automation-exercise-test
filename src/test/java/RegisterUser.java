@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 public class RegisterUser {
 
     @Test
-    public void successfulRegistration(){
+    public void successfulRegistration() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -53,7 +53,7 @@ public class RegisterUser {
 
         By partnersCheckbox = By.id("optin");
 
-        driver.findElement(userPassword).sendKeys("kacsa");
+        driver.findElement(userPassword).sendKeys("testPassword");
 
         driver.findElement(daySelect).click();
 
@@ -127,7 +127,18 @@ public class RegisterUser {
 
         driver.findElement(continueCreateButton).click();
 
-        By addButton = By.id("dismiss-button");
+        Thread.sleep(5000);
+
+        WebElement frame1 = driver.findElement(By.xpath("//iframe[@id=\"aswift_1\"]"));
+        ///html/ins/div/iframe
+
+        driver.switchTo().frame(frame1);
+
+        WebElement frame2 = driver.findElement(By.xpath("//iframe[@id=\"ad_iframe\"]"));
+
+        driver.switchTo().frame(frame2);
+
+        By addButton = By.xpath("//div[@id=\"dismiss-button\"]");
 
         driver.findElement(addButton).click();
 
@@ -139,7 +150,7 @@ public class RegisterUser {
 
         driver.findElement(continueDeleteButton).click();
 
-        //driver.quit();
+        driver.quit();
         
     }
 }
