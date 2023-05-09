@@ -1,3 +1,4 @@
+import com.codecool.page.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -130,7 +131,6 @@ public class RegisterUser {
         Thread.sleep(5000);
 
         WebElement frame1 = driver.findElement(By.xpath("//iframe[@id=\"aswift_1\"]"));
-        ///html/ins/div/iframe
 
         driver.switchTo().frame(frame1);
 
@@ -152,5 +152,30 @@ public class RegisterUser {
 
         driver.quit();
         
+    }
+
+    @Test
+    public void successfulRegistrationPom(){
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginSignUpPage = new LoginPage(driver);
+        loginSignUpPage.signUp();
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.enterAccountInformation();
+
+        AccountCreated accountCreated = new AccountCreated(driver);
+        accountCreated.confirmAccountCreated();
+
+        indexPage.clickDeleteButton();
+
+        DeleteAccount deleteAccount = new DeleteAccount(driver);
+        deleteAccount.clickContinueButton();
+
+        driver.quit();
     }
 }
