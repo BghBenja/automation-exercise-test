@@ -1,4 +1,5 @@
 import com.codecool.page.*;
+import org.testng.Assert;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -170,6 +171,8 @@ public class RegisterUser {
 
         AccountCreated accountCreated = new AccountCreated(driver);
         accountCreated.confirmAccountCreated();
+
+        Assert.assertTrue(indexPage.getLoggedInUser().contains("test27"));
 
         indexPage.clickDeleteButton();
 
