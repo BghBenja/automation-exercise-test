@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -17,6 +16,9 @@ public class IndexPage {
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a")
     WebElement singUpButton;
+
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[10]/a")
+    WebElement loggedInUser;
 
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[5]/a")
     WebElement deleteButton;
@@ -36,5 +38,9 @@ public class IndexPage {
 
     public void clickDeleteButton(){
         deleteButton.click();
+    }
+
+    public String getLoggedInUser(){
+        return loggedInUser.getText();
     }
 }
