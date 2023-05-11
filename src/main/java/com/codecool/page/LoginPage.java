@@ -26,7 +26,10 @@ public class LoginPage {
     WebElement loginButton;
 
     @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[1]/div/form/p")
-    WebElement errorMessage;
+    WebElement errorMessageLogin;
+
+    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/form/p")
+    WebElement errorMessageSingUp;
 
     private WebDriver driver;
 
@@ -35,12 +38,12 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void setUserName() {
-        signupName.sendKeys("test27");
+    public void setUserName(String userName) {
+        signupName.sendKeys(userName);
     }
 
-    public void setUserEmail() {
-        signupEmail.sendKeys("test27@gmail.com");
+    public void setUserEmail(String userEmail) {
+        signupEmail.sendKeys(userEmail);
     }
 
     public void clickSingUpButton() {
@@ -48,8 +51,8 @@ public class LoginPage {
     }
 
     public void signUp() {
-        setUserName();
-        setUserEmail();
+        setUserName("test27");
+        setUserEmail("test27@gmail.com");
         clickSingUpButton();
     }
 
@@ -71,14 +74,24 @@ public class LoginPage {
         clickLoginButton();
     }
 
-    public String getErrorMessage(){
-        return errorMessage.getText();
+    public String getLoginErrorMessage(){
+        return errorMessageLogin.getText();
+    }
+
+    public String getSingUpErrorMessage(){
+        return errorMessageSingUp.getText();
     }
 
     public void incorrectLogin(){
         setLoginEmail("incorrectTester@gmail.com");
         setLoginPassword("incorrectTesterPassword");
         clickLoginButton();
+    }
+
+    public void singUpExistingUser(){
+        setUserName("existTester");
+        setUserEmail("existTester@gmail.com");
+        clickSingUpButton();
     }
 
 

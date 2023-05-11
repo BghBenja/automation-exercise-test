@@ -181,4 +181,20 @@ public class RegisterUser {
 
         driver.quit();
     }
+
+    @Test
+    public void existingUserRegister(){
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginSignUpPage = new LoginPage(driver);
+        loginSignUpPage.singUpExistingUser();
+
+        Assert.assertTrue(loginSignUpPage.getSingUpErrorMessage().contains("exist"));
+
+        driver.quit();
+    }
 }

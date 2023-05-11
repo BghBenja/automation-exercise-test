@@ -43,7 +43,7 @@ public class TestLoginUser {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.incorrectLogin();
 
-        Assert.assertTrue(loginPage.getErrorMessage().contains("incorrect"));
+        Assert.assertTrue(loginPage.getLoginErrorMessage().contains("incorrect"));
 
         driver.quit();
     }
