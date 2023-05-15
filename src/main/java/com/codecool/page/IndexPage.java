@@ -35,6 +35,9 @@ public class IndexPage {
     @FindBy(id = "dismiss-button")
     WebElement dismissButton;
 
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[1]/a")
+    WebElement homeButton;
+
     public IndexPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -73,5 +76,9 @@ public class IndexPage {
 
     public void clickDismissButton(){
         dismissButton.click();
+    }
+
+    public String getHomeButtonText() {
+        return homeButton.getText();
     }
 }

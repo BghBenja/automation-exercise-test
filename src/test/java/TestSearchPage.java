@@ -22,4 +22,16 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyIndexPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+
+        Assert.assertTrue(indexPage.getHomeButtonText().contains("Home"));
+
+        driver.quit();
+    }
 }
