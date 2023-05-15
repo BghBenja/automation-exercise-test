@@ -34,4 +34,19 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyLoginPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        Assert.assertTrue(loginPage.getLoginHeading().contains("Login"));
+
+        driver.quit();
+    }
 }

@@ -31,6 +31,9 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[3]/div/form/p")
     WebElement errorMessageSingUp;
 
+    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[1]/div/h2")
+    WebElement loginHeading;
+
     private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -92,6 +95,10 @@ public class LoginPage {
         setUserName("existTester");
         setUserEmail("existTester@gmail.com");
         clickSingUpButton();
+    }
+
+    public String getLoginHeading() {
+        return loginHeading.getText();
     }
 
 
