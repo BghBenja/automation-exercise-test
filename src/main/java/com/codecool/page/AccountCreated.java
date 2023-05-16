@@ -21,6 +21,9 @@ public class AccountCreated {
     @FindBy(id = "dismiss-button")
     WebElement dismissButton;
 
+    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div/h2")
+    WebElement accountCreatedHeader;
+
     public AccountCreated(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -47,5 +50,9 @@ public class AccountCreated {
         switchFrame1();
         switchFrame2();
         clickDismissButton();
+    }
+
+    public String getAccountCreatedHeaderText() {
+        return accountCreatedHeader.getText();
     }
 }

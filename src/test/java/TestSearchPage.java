@@ -1,6 +1,4 @@
-import com.codecool.page.IndexPage;
-import com.codecool.page.LoginPage;
-import com.codecool.page.TestCasesPage;
+import com.codecool.page.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
@@ -62,6 +60,32 @@ public class TestSearchPage {
         loginSignUpPage.signUp();
 
         Assert.assertTrue(loginSignUpPage.getAccountInformationText().contains("ENTER ACCOUNT INFORMATION"));
+
+        driver.quit();
+    }
+
+    @Test
+    public void verifyAccountCreatedPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginSignUpPage = new LoginPage(driver);
+        loginSignUpPage.signUp();
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.enterAccountInformation();
+
+        AccountCreated accountCreated = new AccountCreated(driver);
+        Assert.assertTrue(accountCreated.getAccountCreatedHeaderText().contains("ACCOUNT CREATED!"));
+        accountCreated.confirmAccountCreated();
+
+        indexPage.clickDeleteButton();
+
+        DeleteAccount deleteAccount = new DeleteAccount(driver);
+        deleteAccount.clickContinueButton();
 
         driver.quit();
     }
