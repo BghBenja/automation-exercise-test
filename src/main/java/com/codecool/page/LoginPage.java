@@ -34,6 +34,9 @@ public class LoginPage {
     @FindBy(xpath = "//*[@id=\"form\"]/div/div/div[1]/div/h2")
     WebElement loginHeading;
 
+    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div/div[1]/h2")
+    WebElement accountInformationHeader;
+
     private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -99,6 +102,10 @@ public class LoginPage {
 
     public String getLoginHeading() {
         return loginHeading.getText();
+    }
+
+    public String getAccountInformationText() {
+        return accountInformationHeader.getText();
     }
 
 

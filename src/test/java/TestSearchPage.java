@@ -49,4 +49,20 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyAccountInformationPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginSignUpPage = new LoginPage(driver);
+        loginSignUpPage.signUp();
+
+        Assert.assertTrue(loginSignUpPage.getAccountInformationText().contains("ENTER ACCOUNT INFORMATION"));
+
+        driver.quit();
+    }
 }
