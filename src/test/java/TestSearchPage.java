@@ -117,4 +117,19 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyProductsPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickProductsButton();
+
+        ProductsPage productsPage = new ProductsPage(driver);
+
+        Assert.assertTrue(productsPage.getProductsHeaderText().contains("ALL PRODUCTS"));
+
+        driver.quit();
+    }
 }

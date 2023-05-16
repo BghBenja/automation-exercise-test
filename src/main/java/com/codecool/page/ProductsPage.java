@@ -12,6 +12,9 @@ public class ProductsPage {
     @FindBy(xpath = "/html/body/section[2]/div/div/div[2]/div")
     WebElement productsList;
 
+    @FindBy(xpath = "/html/body/section[2]/div/div/div[2]/div/h2")
+    WebElement productsHeader;
+
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -19,5 +22,9 @@ public class ProductsPage {
 
     public boolean productsListVisible() {
         return productsList.isDisplayed();
+    }
+
+    public String getProductsHeaderText() {
+        return productsHeader.getText();
     }
 }
