@@ -89,4 +89,32 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyDeleteAccountPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginSignUpPage = new LoginPage(driver);
+        loginSignUpPage.signUp();
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+        signUpPage.enterAccountInformation();
+
+        AccountCreated accountCreated = new AccountCreated(driver);
+        accountCreated.confirmAccountCreated();
+
+        indexPage.clickDeleteButton();
+
+        DeleteAccount deleteAccount = new DeleteAccount(driver);
+
+        Assert.assertTrue(accountCreated.getAccountCreatedHeaderText().contains("ACCOUNT DELETED!"));
+
+        deleteAccount.clickContinueButton();
+
+        driver.quit();
+    }
 }

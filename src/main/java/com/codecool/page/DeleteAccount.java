@@ -12,6 +12,9 @@ public class DeleteAccount {
     @FindBy(css = "a[data-qa='continue-button']")
     WebElement continueButton;
 
+    @FindBy(xpath = "//*[@id=\"form\"]/div/div/div/h2")
+    WebElement deleteAccountHeader;
+
     public DeleteAccount(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -19,5 +22,9 @@ public class DeleteAccount {
 
     public void clickContinueButton() {
         continueButton.click();
+    }
+
+    public String getDeleteAccountHeaderText() {
+        return deleteAccountHeader.getText();
     }
 }
