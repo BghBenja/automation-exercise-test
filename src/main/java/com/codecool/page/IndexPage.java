@@ -41,6 +41,9 @@ public class IndexPage {
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]/a")
     WebElement logoutButton;
 
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[2]/a")
+    WebElement productsButton;
+
     public IndexPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -87,5 +90,12 @@ public class IndexPage {
 
     public void clickLogoutButton() {
         logoutButton.click();
+    }
+
+    public void clickProductsButton() {
+        productsButton.click();
+        switchFrame1();
+        switchFrame2();
+        clickDismissButton();
     }
 }
