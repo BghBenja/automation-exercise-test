@@ -108,5 +108,9 @@ public class LoginPage {
         return accountInformationHeader.getText();
     }
 
+    public String getSignUpButtonText() {
+        return singUpButton.getText();
+    }
+
 
 }

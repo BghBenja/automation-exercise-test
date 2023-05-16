@@ -47,4 +47,22 @@ public class TestLoginUser {
 
         driver.quit();
     }
+
+    @Test
+    public void logoutUser() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickSingUpButton();
+
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login();
+
+        indexPage.clickLogoutButton();
+
+        Assert.assertTrue(loginPage.getSignUpButtonText().contains("Signup"));
+
+        driver.quit();
+    }
 }
