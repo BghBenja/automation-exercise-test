@@ -22,4 +22,18 @@ public class TestProducts {
 
         driver.quit();
     }
+
+    @Test
+    public void searchProduct(){
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickProductsButton();
+
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.searchProduct("Blue Top");
+
+        Assert.assertTrue(productsPage.getSearchedProductText().contains("Blue Top"));
+    }
 }
