@@ -44,6 +44,15 @@ public class IndexPage {
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[2]/a")
     WebElement productsButton;
 
+    @FindBy(id = "susbscribe_email")
+    WebElement subscribeEmailInput;
+
+    @FindBy(id = "subscribe")
+    WebElement subscribeButton;
+
+    @FindBy(xpath = "//*[@id=\"success-subscribe\"]/div")
+    WebElement successAlert;
+
     public IndexPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -97,5 +106,22 @@ public class IndexPage {
         switchFrame1();
         switchFrame2();
         clickDismissButton();
+    }
+
+    public void setSubscribeEmailInput(String email){
+        subscribeEmailInput.sendKeys(email);
+    }
+
+    public void clickSubscribeButton() {
+        subscribeButton.click();
+    }
+
+    public String getSuccessAlertText() {
+        return successAlert.getText();
+    }
+
+    public void homePageSubscription() {
+        setSubscribeEmailInput("test27@gmail.com");
+        clickSubscribeButton();
     }
 }
