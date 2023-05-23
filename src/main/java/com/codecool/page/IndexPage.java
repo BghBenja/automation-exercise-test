@@ -53,6 +53,9 @@ public class IndexPage {
     @FindBy(xpath = "//*[@id=\"success-subscribe\"]/div")
     WebElement successAlert;
 
+    @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[3]/a")
+    WebElement cartButton;
+
     public IndexPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -123,5 +126,9 @@ public class IndexPage {
     public void homePageSubscription() {
         setSubscribeEmailInput("test27@gmail.com");
         clickSubscribeButton();
+    }
+
+    public void clickCartButton() {
+        cartButton.click();
     }
 }
