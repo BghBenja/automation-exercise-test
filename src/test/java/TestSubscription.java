@@ -32,7 +32,7 @@ public class TestSubscription {
         ViewCartPage viewCartPage = new ViewCartPage(driver);
         viewCartPage.cartPageSubscription();
 
-        Assert.assertTrue(indexPage.getSuccessAlertText().contains("You have been successfully subscribed!"));
+        Assert.assertTrue(viewCartPage.getSuccessAlertText().contains("You have been successfully subscribed!"));
 
         driver.quit();
     }

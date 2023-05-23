@@ -18,6 +18,9 @@ public class ViewCartPage {
     @FindBy(xpath = "//*[@id=\"success-subscribe\"]/div")
     WebElement successAlert;
 
+    @FindBy(xpath = "//*[@id=\"cart_items\"]/div/div[1]/ol/li[2]")
+    WebElement shoppingCartText;
+
     public ViewCartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -38,6 +41,10 @@ public class ViewCartPage {
     public void cartPageSubscription() {
         setSubscribeEmailInput("test27@gmail.com");
         clickSubscribeButton();
+    }
+
+    public String getShoppingCartText() {
+        return shoppingCartText.getText();
     }
 
 }

@@ -132,4 +132,19 @@ public class TestSearchPage {
 
         driver.quit();
     }
+
+    @Test
+    public void verifyViewCartPage() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickCartButton();
+
+        ViewCartPage viewCartPage = new ViewCartPage(driver);
+
+        Assert.assertTrue(viewCartPage.getShoppingCartText().contains("Shopping Cart"));
+
+        driver.quit();
+    }
 }
