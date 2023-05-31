@@ -106,9 +106,9 @@ public class IndexPage {
 
     public void clickProductsButton() {
         productsButton.click();
-        switchFrame1();
-        switchFrame2();
-        clickDismissButton();
+        //switchFrame1();
+        //switchFrame2();
+        //clickDismissButton();
     }
 
     public void setSubscribeEmailInput(String email){

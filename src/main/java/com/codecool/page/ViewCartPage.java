@@ -21,6 +21,12 @@ public class ViewCartPage {
     @FindBy(xpath = "//*[@id=\"cart_items\"]/div/div[1]/ol/li[2]")
     WebElement shoppingCartText;
 
+    @FindBy(xpath = "//*[@id=\"product-1\"]/td[2]/h4/a")
+    WebElement firstCartProductText;
+
+    @FindBy(xpath = "//*[@id=\"product-2\"]/td[2]/h4/a")
+    WebElement secondCarteProductText;
+
     public ViewCartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -45,6 +51,14 @@ public class ViewCartPage {
 
     public String getShoppingCartText() {
         return shoppingCartText.getText();
+    }
+
+    public String getFirstCartProduct() {
+        return firstCartProductText.getText();
+    }
+
+    public String getSecondCartProduct() {
+        return secondCarteProductText.getText();
     }
 
 }
