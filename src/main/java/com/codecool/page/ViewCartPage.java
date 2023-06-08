@@ -27,6 +27,9 @@ public class ViewCartPage {
     @FindBy(xpath = "//*[@id=\"product-2\"]/td[2]/h4/a")
     WebElement secondCarteProductText;
 
+    @FindBy(xpath = "//*[@id=\"product-1\"]/td[4]/button")
+    WebElement quantityNumber;
+
     public ViewCartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -59,6 +62,10 @@ public class ViewCartPage {
 
     public String getSecondCartProduct() {
         return secondCarteProductText.getText();
+    }
+
+    public String getQuantityNumberText() {
+        return quantityNumber.getText();
     }
 
 }

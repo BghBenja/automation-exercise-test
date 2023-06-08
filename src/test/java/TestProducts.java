@@ -55,4 +55,22 @@ public class TestProducts {
 
         driver.quit();
     }
+
+    @Test
+    public void productQuantityInCart() {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        IndexPage indexPage = new IndexPage(driver);
+        indexPage.clickProductsButton();
+
+        ProductsPage productsPage = new ProductsPage(driver);
+        productsPage.addProductTwice();
+
+        ViewCartPage viewCartPage = new ViewCartPage(driver);
+
+        Assert.assertTrue(viewCartPage.getQuantityNumberText().contains("2"));
+
+        driver.quit();
+    }
 }

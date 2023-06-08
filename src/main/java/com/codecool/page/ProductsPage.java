@@ -80,4 +80,12 @@ public class ProductsPage {
 
         js.executeScript("window.scroll(0,400)");
     }
+
+    public void addProductTwice(){
+        scrollDown();
+        firstAddProductButton.click();
+        continueShoppingButton.click();
+        firstAddProductButton.click();
+        viewCartButton.click();
+    }
 }
